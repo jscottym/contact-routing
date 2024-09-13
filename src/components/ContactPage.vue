@@ -26,7 +26,7 @@ watch(()=>route.params.contactId, (newVal)=> {
 
 <template>
   <div>
-    <h1>ContactPage Component ({{ route.params.contactId }})</h1>
+    <h1>ContactPage ({{ route.params.contactId }})</h1>
     <router-view :contact="contact" />
   </div>
 </template>

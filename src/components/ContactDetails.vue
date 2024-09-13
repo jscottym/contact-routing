@@ -8,7 +8,7 @@ defineProps({
 const router = useRouter();
 function toEdit() {
   console.log('toEdit');
-  router.push('./edit');
+  router.push('edit');
 }
 </script>
 
