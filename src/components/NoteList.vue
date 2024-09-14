@@ -15,7 +15,7 @@ const router = useRouter();
 
 const { basePath: contactBasePath } = useBasePath('contact');
 
-const { basePath, navigateToDetails } = useBasePath('note', {
+const { basePath, isListRoute, navigateToId } = useBasePath('note', {
     doProvide: true,
     basePath: `${contactBasePath}/${route.params.contactId}/notes`
 });
@@ -39,7 +39,7 @@ async function addContactNote(note) {
   console.log('newNote', newNote);
   await loadNotes();
 
-  router.push(`${basePath}/${newNote.id}`);
+  navigateToId
 }
 
 </script>

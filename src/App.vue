@@ -7,7 +7,8 @@ import { RouterLink, RouterView } from 'vue-router'
     <header>
       <div class="wrapper">
         <nav>
-          <RouterLink to="/">Back to Contact List</RouterLink>
+          <RouterLink to="/">Back Home</RouterLink>
+          <RouterLink to="../">Up a level</RouterLink>
         </nav>
       </div>
     </header>

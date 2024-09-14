@@ -1,13 +1,14 @@
 <script setup>
+import { computed } from "vue";
 import { storeToRefs } from "pinia";
 import { useFakeContactsStore } from "@/stores/fakeContactsStore";
-import { useRoute, useRouter } from "vue-router";
 import useBasePath from "../composables/useBasePath";
+import useScreenWidth from "@/composables/useScreenWidth";
 
-const route = useRoute();
-const router = useRouter();
+const screenWidth = useScreenWidth();
+const isBigEnough = computed(()=> screenWidth.isTabletOrWider);
 
-const { basePath, navigateToDetails } = useBasePath('contact', {
+const { basePath, isListRoute, navigateToDetails } = useBasePath('contact', {
     doProvide: true,
     basePath: '/contacts'
 });
@@ -21,7 +22,8 @@ function openContact(contactId) {
 
 <template>
   <div class="main-wrapper flex gap-2">
-    <div class="panel p-4">
+    <pre>{{ { isBigEnough, isListRoute, screenWidth } }}</pre>
+    <div v-show="isBigEnough || isListRoute" class="panel p-4">
       <h1>Contact List</h1>
 
       <div>Base: {{ basePath }}</div>
@@ -35,8 +37,9 @@ function openContact(contactId) {
       </ul>
     </div>
 
-    <!-- Pass basePath to router-view or use as needed -->
-    <router-view :basePath="basePath"/>
+    <div v-show="isBigEnough || !isListRoute">
+      <router-view/>
+    </div>
   </div>
 </template>
 

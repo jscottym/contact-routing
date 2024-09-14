@@ -24,22 +24,22 @@ watch(()=>route.params.noteId, (newVal)=> {
 </script>
 
 <template>
-  <div class="flex gap-2">
-    <div class="p-4 panel">
-      <h1>Note Details</h1>
+    <div class="flex gap-2">
+      <div class="p-4 panel">
+        <h1>Note Details</h1>
 
-      <div v-if="isLoading">Loading...</div>
+        <div v-if="isLoading">Loading...</div>
 
-      <div v-if="error">Can't load that note</div>
+        <div v-if="error">Can't load that note</div>
 
-      <template v-else>
-        <h3>{{ note.content }}</h3>
+        <template v-else>
+          <h3>{{ note.content }}</h3>
 
-        <button @click="navigateToEdit()">Edit</button>
-      </template>
+          <button @click="navigateToEdit()">Edit</button>
+        </template>
+      </div>
+
+      <RouterView :note="note" />
+
     </div>
-
-    <RouterView :note="note" />
-
-  </div>
 </template>

@@ -2,11 +2,15 @@
 import { useAsyncState } from "@vueuse/core";
 import { useRoute } from "vue-router";
 import { useFakeContactsStore } from "@/stores/fakeContactsStore";
-import {onMounted, watch} from "vue";
+import {onMounted, watch, computed} from "vue";
 import useBasePath from "@/composables/useBasePath";
+import useScreenWidth from "@/composables/useScreenWidth";
+
+const screenWidth = useScreenWidth();
+const isBigEnough = computed(()=> screenWidth.isTabletOrWider);
 
 const route = useRoute();
-const { basePath } = useBasePath('contact');
+const { basePath, isListRoute } = useBasePath('contact');
 
 const { getContactById } = useFakeContactsStore();
 const { state: contact, isLoading, execute: loadContact } = useAsyncState(
@@ -29,7 +33,7 @@ watch(()=>route.params.contactId, (newVal)=> {
 
 <template>
   <div class="flex gap-2">
-    <div class="panel p-4">
+    <div v-show="isBigEnough || isListRoute" class="panel p-4">
       <h1>ContactFeed ({{ route.params.contactId }})</h1>
 
       <div>{{ contact.name }}</div>
@@ -41,7 +45,9 @@ watch(()=>route.params.contactId, (newVal)=> {
       </div>
     </div>
 
-    <RouterView :contact="contact"/>
+    <div v-show="isBigEnough || !isListRoute">
+      <RouterView :contact="contact"/>
+    </div>
 
   </div>
 </template>

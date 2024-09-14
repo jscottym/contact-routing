@@ -6,7 +6,6 @@ export default function useBasePath(objectName,  { doProvide, basePath } = {}) {
     const router = useRouter();
     const entity = ref(null);
 
-
     // If the component is responsible for providing, compute the base path
     if (doProvide) {
         provide(`${objectName}BasePath`, basePath);
@@ -22,13 +21,20 @@ export default function useBasePath(objectName,  { doProvide, basePath } = {}) {
     }
 
     function navigateToDetails() {
+        router.push(`${basePath}/${route.params[`${objectName}Id`]}/details`);
+    }
+
+    function navigateToId() {
         router.push(`${basePath}/${route.params[`${objectName}Id`]}`);
     }
+
+    const isListRoute = computed(() => route.path === basePath);
 
     return {
         entity,
         basePath,
         navigateToEdit,
-        navigateToDetails
+        navigateToDetails,
+        isListRoute,
     };
 }
