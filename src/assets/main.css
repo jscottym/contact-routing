@@ -14,7 +14,8 @@ a,
 }
 
 @media (hover: hover) {
-  a:hover {
+  a:hover,
+  a.router-link-active {
     background-color: hsla(160, 100%, 37%, 0.2);
   }
 }
@@ -171,5 +172,12 @@ a,
 }
 .ring-red {
   box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.5);
+}
+
+.panel {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
+  min-width: 300px;
+  max-width: 300px;
+  padding: 1rem;
 }
 

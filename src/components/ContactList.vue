@@ -1,38 +1,42 @@
-<script setup lang="ts">
+<script setup>
 import { storeToRefs } from "pinia";
-import { useContactsStore } from "@/stores/contactStore";
-import {useRoute, useRouter} from "vue-router";
+import { useFakeContactsStore } from "@/stores/fakeContactsStore";
+import { useRoute, useRouter } from "vue-router";
+import useBasePath from "../composables/useBasePath";
 
 const route = useRoute();
 const router = useRouter();
 
-const baseContactPath = route.matched.find(
-  (record) => record.components.default === route.matched[0]?.components.default
-)?.path;
+const { basePath, navigateToDetails } = useBasePath('contact', {
+    doProvide: true,
+    basePath: '/contacts'
+});
 
-const { contacts } = storeToRefs(useContactsStore());
+const { contacts } = storeToRefs(useFakeContactsStore());
 
 function openContact(contactId) {
-  console.log('current route', route.path);
-  router.push(`${baseContactPath}/contact/${contactId}`);
+  navigateToDetails(contactId);
 }
 </script>
 
 <template>
   <div class="main-wrapper flex gap-2">
-    <div>
+    <div class="panel p-4">
       <h1>Contact List</h1>
+
+      <div>Base: {{ basePath }}</div>
 
       <ul>
         <li v-for="contact in contacts" :key="contact.id">
-          <router-link :to="`${baseContactPath}/contact/${contact.id}`">
+          <RouterLink :to="`${basePath}/${contact.id}/details`">
             {{ contact.name }}
-          </router-link>
+          </RouterLink>
         </li>
       </ul>
     </div>
 
-    <router-view/>
+    <!-- Pass basePath to router-view or use as needed -->
+    <router-view :basePath="basePath"/>
   </div>
 </template>
 

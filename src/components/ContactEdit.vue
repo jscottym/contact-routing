@@ -1,24 +1,22 @@
-<script setup lang="ts">
+<script setup>
 import { defineProps } from "vue";
-import {useRouter} from "vue-router";
+import useBasePath from "../composables/useBasePath";
+
 defineProps({
   contact: Object,
 });
 
-function backToDetails() {
-  const router = useRouter();
-  console.log('backToDetails');
-  router.push('../');
-}
+const { navigateToDetails } = useBasePath('contact');
+
 </script>
 
 <template>
-  <div>
-    <h2>Edit Contact</h2>
+  <div class="panel">
+    <h1>Edit Contact</h1>
     <form v-if="contact">
       <label>Name: <input v-model="contact.name" /></label><br />
       <label>Email: <input v-model="contact.email" /></label><br />
-      <button type="submit" @click="backToDetails">Save Contact</button>
+      <button type="submit" @click="navigateToDetails">Back to details</button>
     </form>
   </div>
 </template>

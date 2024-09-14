@@ -1,9 +1,12 @@
 import { createRouter, createWebHistory } from "vue-router";
 import ContactList from "@/components/ContactList.vue";
-import ContactPage from "@/components/ContactPage.vue";
+import ContactFeed from "@/components/ContactFeed.vue";
 import ContactDetails from "@/components/ContactDetails.vue";
 import ContactEdit from "@/components/ContactEdit.vue";
-import ContactAdd from "@/components/ContactAdd.vue";
+import NoteAdd from "@/components/NoteAdd.vue";
+import NoteList from "@/components/NoteList.vue";
+import NoteDetails from "@/components/NoteDetails.vue";
+import NoteEdit from "@/components/NoteEdit.vue";
 
 const routes= [
   {
@@ -16,28 +19,40 @@ const routes= [
     component: ContactList,
     children: [
       {
-        path: "contact",
+        path: ":contactId",
+        component: ContactFeed,
         children: [
           {
-            path: ":contactId",
-            component: ContactPage,
-            children: [
-              {
-                path: "",
-                name: "contact-details",
-                component: ContactDetails,
-              },
-              {
-                path: "edit",
-                name: "contact-edit",
-                component: ContactEdit,
-              },
-            ],
+            path: "details",
+            component: ContactDetails,
           },
+
           {
-            path: "add",
-            component: ContactAdd,
+            path: "edit",
+            component: ContactEdit,
           },
+
+          {
+            path: "notes",
+            component: NoteList,
+            children: [
+                {
+                  path: "add",
+                  component: NoteAdd,
+                },
+
+                {
+                  path: ":noteId",
+                  component: NoteDetails,
+                  children: [
+                    {
+                      path: "edit",
+                      component: NoteEdit,
+                    }
+                  ]
+                }
+            ]
+          }
         ],
       },
     ],
