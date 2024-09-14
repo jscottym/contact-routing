@@ -4,11 +4,11 @@ import { useRoute } from "vue-router";
 import { useFakeContactsStore } from "@/stores/fakeContactsStore";
 import {onMounted, watch, computed} from "vue";
 import useBasePath from "@/composables/useBasePath";
-import useScreenWidth from "@/composables/useScreenWidth";
+import useShowOrHide from "../composables/useShowOrHide";
 
-const screenWidth = useScreenWidth();
-const isBigEnough = computed(()=> screenWidth.isTabletOrWider);
-
+const { isWideEnough: isShowFeed, isCurrentRoute: isFeedRoute } = useShowOrHide(1470, /^\/contacts\/[^/]+$/);
+const { isWideEnough: isShowTab, isCurrentRoute: isTabRoute } = useShowOrHide(1470, /^\/contacts\/[^/]+\/[^/]+$/
+);
 const route = useRoute();
 const { basePath, isListRoute } = useBasePath('contact');
 
@@ -33,7 +33,7 @@ watch(()=>route.params.contactId, (newVal)=> {
 
 <template>
   <div class="flex gap-2">
-    <div v-show="isBigEnough || isListRoute" class="panel p-4">
+    <div v-show="isShowFeed || isFeedRoute" class="panel p-4">
       <h1>ContactFeed ({{ route.params.contactId }})</h1>
 
       <div>{{ contact.name }}</div>
@@ -45,7 +45,7 @@ watch(()=>route.params.contactId, (newVal)=> {
       </div>
     </div>
 
-    <div v-show="isBigEnough || !isListRoute">
+    <div v-show="isShowTab || !isTabRoute">
       <RouterView :contact="contact"/>
     </div>
 

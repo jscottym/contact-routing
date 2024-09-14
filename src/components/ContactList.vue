@@ -3,10 +3,11 @@ import { computed } from "vue";
 import { storeToRefs } from "pinia";
 import { useFakeContactsStore } from "@/stores/fakeContactsStore";
 import useBasePath from "../composables/useBasePath";
-import useScreenWidth from "@/composables/useScreenWidth";
+import { useMediaQuery } from "@vueuse/core";
+import useShowOrHide from "../composables/useShowOrHide";
 
-const screenWidth = useScreenWidth();
-const isBigEnough = computed(()=> screenWidth.isTabletOrWider);
+const { isWideEnough, isCurrentRoute } = useShowOrHide(751, /^\/contacts$/);
+const isBigEnough = useMediaQuery('(min-width: 751px)');
 
 const { basePath, isListRoute, navigateToDetails } = useBasePath('contact', {
     doProvide: true,
@@ -15,6 +16,7 @@ const { basePath, isListRoute, navigateToDetails } = useBasePath('contact', {
 
 const { contacts } = storeToRefs(useFakeContactsStore());
 
+
 function openContact(contactId) {
   navigateToDetails(contactId);
 }
@@ -22,22 +24,21 @@ function openContact(contactId) {
 
 <template>
   <div class="main-wrapper flex gap-2">
-    <pre>{{ { isBigEnough, isListRoute, screenWidth } }}</pre>
-    <div v-show="isBigEnough || isListRoute" class="panel p-4">
+    <div v-show="isBigEnough || isCurrentRoute" class="panel p-4">
       <h1>Contact List</h1>
 
       <div>Base: {{ basePath }}</div>
 
       <ul>
         <li v-for="contact in contacts" :key="contact.id">
-          <RouterLink :to="`${basePath}/${contact.id}/details`">
+          <RouterLink :to="`${basePath}/${contact.id}`">
             {{ contact.name }}
           </RouterLink>
         </li>
       </ul>
     </div>
 
-    <div v-show="isBigEnough || !isListRoute">
+    <div v-show="isBigEnough || !isCurrentRoute">
       <router-view/>
     </div>
   </div>

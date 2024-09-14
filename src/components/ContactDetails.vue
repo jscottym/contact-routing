@@ -3,7 +3,6 @@ import { defineProps } from "vue";
 import {useRouter} from "vue-router";
 import useBasePath from "../composables/useBasePath";
 
-
 defineProps({
   contact: Object,
 });

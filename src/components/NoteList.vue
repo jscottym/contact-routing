@@ -4,8 +4,9 @@ import { useFakeContactsStore } from "@/stores/fakeContactsStore";
 import { useRoute, useRouter } from "vue-router";
 import useBasePath from "../composables/useBasePath";
 import { useAsyncState } from "@vueuse/core";
-import { storeToRefs } from "pinia";
+import useShowOrHide from "../composables/useShowOrHide";
 
+const { isWideEnough, isCurrentRoute } = useShowOrHide(1470, /^\/contacts\/[^/]+\/notes$/);
 const props = defineProps({
   contact: Object,
 });
@@ -46,7 +47,7 @@ async function addContactNote(note) {
 
 <template>
   <div class="main-wrapper flex gap-2">
-    <div class="panel p-4">
+    <div v-show="isWideEnough || isCurrentRoute" class="panel p-4">
       <h1>Notes List</h1>
 
       <div>base path: {{ basePath }}</div>
@@ -62,7 +63,7 @@ async function addContactNote(note) {
 
       <div v-if="isLoading">Loading...</div>
 
-      <div class="m-4">
+      <div v-show="isWideEnough || !isCurrentRoute" class="m-4">
         <RouterLink :to="`${basePath}/add`">Go to add note</RouterLink>
       </div>
     </div>

@@ -1,5 +1,14 @@
 <script setup>
+import { computed } from 'vue';
 import { RouterLink, RouterView } from 'vue-router'
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
+const upOneLevelPath = computed(()=> {
+  const path = route.path.split('/');
+  path.pop();
+  return path.join('/');
+});
 </script>
 
 <template>
@@ -8,7 +17,7 @@ import { RouterLink, RouterView } from 'vue-router'
       <div class="wrapper">
         <nav>
           <RouterLink to="/">Back Home</RouterLink>
-          <RouterLink to="../">Up a level</RouterLink>
+          <RouterLink :to="upOneLevelPath">Up a level</RouterLink>
         </nav>
       </div>
     </header>

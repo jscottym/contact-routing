@@ -23,6 +23,11 @@ const routes= [
         component: ContactFeed,
         children: [
           {
+            path: "",
+            component: ContactDetails,
+          },
+            
+          {
             path: "details",
             component: ContactDetails,
           },
