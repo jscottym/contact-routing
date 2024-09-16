@@ -1,13 +1,11 @@
 <script setup>
-import { computed } from "vue";
 import { storeToRefs } from "pinia";
 import { useFakeContactsStore } from "@/stores/fakeContactsStore";
 import useBasePath from "../composables/useBasePath";
 import { useMediaQuery } from "@vueuse/core";
 import useShowOrHide from "../composables/useShowOrHide";
 
-const { isWideEnough, isCurrentRoute } = useShowOrHide(751, /^\/contacts$/);
-const isBigEnough = useMediaQuery('(min-width: 751px)');
+const { isWideEnough, isCurrentPanelComponent } = useShowOrHide(751, /^\/contacts$/);
 
 const { basePath, isListRoute, navigateToDetails } = useBasePath('contact', {
     doProvide: true,
@@ -24,7 +22,7 @@ function openContact(contactId) {
 
 <template>
   <div class="main-wrapper flex gap-2">
-    <div v-show="isBigEnough || isCurrentRoute" class="panel p-4">
+    <div v-show="isWideEnough || isCurrentPanelComponent" class="panel p-4">
       <h1>Contact List</h1>
 
       <div>Base: {{ basePath }}</div>
@@ -38,7 +36,7 @@ function openContact(contactId) {
       </ul>
     </div>
 
-    <div v-show="isBigEnough || !isCurrentRoute">
+    <div v-show="isWideEnough || !isCurrentPanelComponent" >
       <router-view/>
     </div>
   </div>

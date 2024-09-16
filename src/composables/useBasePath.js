@@ -24,8 +24,9 @@ export default function useBasePath(objectName,  { doProvide, basePath } = {}) {
         router.push(`${basePath}/${route.params[`${objectName}Id`]}/details`);
     }
 
-    function navigateToId() {
-        router.push(`${basePath}/${route.params[`${objectName}Id`]}`);
+    function navigateToId({id}) {
+        id ??= route.params[`${objectName}Id`];
+        router.push(`${basePath}/${id}`);
     }
 
     const isListRoute = computed(() => route.path === basePath);

@@ -24,8 +24,6 @@ watch(() => route.params.noteId, (newVal) => {
 
 <template>
   <div class="flex gap-2">
-
-
     <router-view v-slot="{ Component }">
       <template v-if="Component">
         <component :is="Component" :note="note"/>

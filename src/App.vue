@@ -12,12 +12,13 @@ const upOneLevelPath = computed(()=> {
 </script>
 
 <template>
-  <div class="flex flex-col gap-2">
+  <div class="flex flex-col justify-start h-full gap-2">
     <header>
       <div class="wrapper">
         <nav>
           <RouterLink to="/">Back Home</RouterLink>
           <RouterLink :to="upOneLevelPath">Up a level</RouterLink>
+          <RouterLink to="/grid">Grid styling</RouterLink>
         </nav>
       </div>
     </header>
@@ -26,3 +27,10 @@ const upOneLevelPath = computed(()=> {
 </div>
 
 </template>
+
+<style scoped>
+nav {
+  display: flex;
+  gap: 1rem;
+}
+</style>

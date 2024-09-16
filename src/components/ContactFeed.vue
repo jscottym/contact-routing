@@ -2,12 +2,13 @@
 import { useAsyncState } from "@vueuse/core";
 import { useRoute } from "vue-router";
 import { useFakeContactsStore } from "@/stores/fakeContactsStore";
-import {onMounted, watch} from "vue";
+import {onMounted, watch, getCurrentInstance, computed} from "vue";
 import useBasePath from "@/composables/useBasePath";
 import useShowOrHide from "../composables/useShowOrHide";
 
 const { isWideEnough, isCurrentRoute } = useShowOrHide(1470, /^\/contacts\/[^/]+$/);
 const route = useRoute();
+
 const { basePath, isListRoute } = useBasePath('contact');
 
 const { getContactById } = useFakeContactsStore();

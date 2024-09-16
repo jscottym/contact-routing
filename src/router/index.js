@@ -7,11 +7,16 @@ import NoteAdd from "@/components/NoteAdd.vue";
 import NoteList from "@/components/NoteList.vue";
 import NoteDetails from "@/components/NoteDetails.vue";
 import NoteEdit from "@/components/NoteEdit.vue";
+import GridTest from "@/components/GridTest.vue";
 
 const routes= [
   {
     path: "/",
     redirect: "/contacts",
+  },
+  {
+    path: "/grid",
+    component: GridTest,
   },
   {
     path: "/contacts",
@@ -25,8 +30,11 @@ const routes= [
           {
             path: "",
             component: ContactDetails,
+            meta: {
+              hidePanel: true,
+            }
           },
-            
+
           {
             path: "details",
             component: ContactDetails,

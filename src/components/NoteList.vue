@@ -6,7 +6,7 @@ import useBasePath from "../composables/useBasePath";
 import { useAsyncState } from "@vueuse/core";
 import useShowOrHide from "../composables/useShowOrHide";
 
-const { isWideEnough, isCurrentRoute } = useShowOrHide(1470, /^\/contacts\/[^/]+\/notes$/);
+const { isWideEnough, isCurrentPanelComponent } = useShowOrHide(1800);
 const props = defineProps({
   contact: Object,
 });
@@ -16,7 +16,7 @@ const router = useRouter();
 
 const { basePath: contactBasePath } = useBasePath('contact');
 
-const { basePath, isListRoute, navigateToId } = useBasePath('note', {
+const { basePath, navigateToId } = useBasePath('note', {
     doProvide: true,
     basePath: `${contactBasePath}/${route.params.contactId}/notes`
 });
@@ -40,35 +40,34 @@ async function addContactNote(note) {
   console.log('newNote', newNote);
   await loadNotes();
 
-  navigateToId
+  navigateToId({id: newNote.id});
 }
 
 </script>
 
 <template>
   <div class="main-wrapper flex gap-2">
-    <div v-show="isWideEnough || isCurrentRoute" class="panel p-4">
-      <h1>Notes List</h1>
+    <div v-show="isWideEnough || isCurrentPanelComponent" class="panel">
+      <div class="flex flex-col gap-2">
+        <h1>Notes List</h1>
 
-      <div>base path: {{ basePath }}</div>
+        <ul>
+          <li v-for="note in notes" :key="note.id">
+            <RouterLink :to="`${basePath}/${note.id}`">
+              {{ note.content }}
+            </RouterLink>
+          </li>
+        </ul>
 
+        <div v-if="isLoading">Loading...</div>
 
-      <ul>
-        <li v-for="note in notes" :key="note.id">
-          <RouterLink :to="`${basePath}/${note.id}`">
-            {{ note.content }}
-          </RouterLink>
-        </li>
-      </ul>
-
-      <div v-if="isLoading">Loading...</div>
-
-      <div v-show="isWideEnough || !isCurrentRoute" class="m-4">
         <RouterLink :to="`${basePath}/add`">Go to add note</RouterLink>
       </div>
     </div>
 
-    <router-view @add="addContactNote" />
+    <div v-show="isWideEnough || !isCurrentPanelComponent">
+      <router-view @add="addContactNote" />
+    </div>
 
   </div>
 </template>
