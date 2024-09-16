@@ -5,7 +5,7 @@ import useBasePath from "../composables/useBasePath";
 import useShowOrHide from "../composables/useShowOrHide";
 import {provide} from "vue";
 
-const listPanelSize = 750;
+const listPanelSize = 1450;
 const { isWideEnough, isCurrentPanelComponent } = useShowOrHide(listPanelSize, /^\/contacts$/);
 
 const { basePath, isListRoute, navigateToDetails } = useBasePath('contact', {
