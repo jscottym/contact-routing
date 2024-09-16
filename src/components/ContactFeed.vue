@@ -5,6 +5,7 @@ import { useFakeContactsStore } from "@/stores/fakeContactsStore";
 import {onMounted, watch, getCurrentInstance, computed} from "vue";
 import useBasePath from "@/composables/useBasePath";
 import useShowOrHide from "../composables/useShowOrHide";
+import PanelHeader from "@/components/PanelHeader.vue";
 
 const { isWideEnough, isCurrentRoute } = useShowOrHide(1470, /^\/contacts\/[^/]+$/);
 const route = useRoute();
@@ -33,7 +34,9 @@ watch(()=>route.params.contactId, (newVal)=> {
 <template>
   <div class="flex gap-2">
     <div v-show="isWideEnough || isCurrentRoute" class="panel p-4">
-      <h1>ContactFeed ({{ route.params.contactId }})</h1>
+      <PanelHeader :show-back="!isWideEnough">
+        <h1>Contact ({{ route.params.contactId }})</h1>
+      </PanelHeader>
 
       <div>{{ contact.name }}</div>
 
@@ -46,7 +49,7 @@ watch(()=>route.params.contactId, (newVal)=> {
     </div>
 
     <div v-show="isWideEnough || (!isCurrentRoute)">
-      <RouterView :contact="contact"/>
+      <RouterView :contact="contact" :show-back="!isWideEnough"/>
     </div>
 
   </div>

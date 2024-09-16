@@ -5,8 +5,9 @@ import { useRoute, useRouter } from "vue-router";
 import useBasePath from "../composables/useBasePath";
 import { useAsyncState } from "@vueuse/core";
 import useShowOrHide from "../composables/useShowOrHide";
+import PanelHeader from "@/components/PanelHeader.vue";
 
-const { isWideEnough, isCurrentPanelComponent } = useShowOrHide(1800);
+const { isWideEnough, isCurrentPanelComponent } = useShowOrHide(1470);
 const props = defineProps({
   contact: Object,
 });
@@ -16,7 +17,7 @@ const router = useRouter();
 
 const { basePath: contactBasePath } = useBasePath('contact');
 
-const { basePath, navigateToId } = useBasePath('note', {
+const { basePath, navigateToId, navigateToList } = useBasePath('note', {
     doProvide: true,
     basePath: `${contactBasePath}/${route.params.contactId}/notes`
 });
@@ -40,7 +41,11 @@ async function addContactNote(note) {
   console.log('newNote', newNote);
   await loadNotes();
 
-  navigateToId({id: newNote.id});
+  if(isWideEnough.value) {
+    navigateToId({id: newNote.id});
+  } else {
+    navigateToList();
+  }
 }
 
 </script>
@@ -49,7 +54,9 @@ async function addContactNote(note) {
   <div class="main-wrapper flex gap-2">
     <div v-show="isWideEnough || isCurrentPanelComponent" class="panel">
       <div class="flex flex-col gap-2">
-        <h1>Notes List</h1>
+        <PanelHeader :show-back="!isWideEnough">
+          <h1>Notes List</h1>
+        </PanelHeader>
 
         <ul>
           <li v-for="note in notes" :key="note.id">
@@ -66,7 +73,7 @@ async function addContactNote(note) {
     </div>
 
     <div v-show="isWideEnough || !isCurrentPanelComponent">
-      <router-view @add="addContactNote" />
+      <router-view @add="addContactNote" :show-back="!isWideEnough" />
     </div>
 
   </div>

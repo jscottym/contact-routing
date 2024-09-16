@@ -1,9 +1,11 @@
 <script setup>
 import { defineProps } from "vue";
 import useBasePath from "../composables/useBasePath";
+import PanelHeader from "@/components/PanelHeader.vue";
 
 defineProps({
   contact: Object,
+  showBack: Boolean,
 });
 
 const { navigateToDetails } = useBasePath('contact');
@@ -12,7 +14,10 @@ const { navigateToDetails } = useBasePath('contact');
 
 <template>
   <div class="panel">
-    <h1>Edit Contact</h1>
+    <PanelHeader :show-back="showBack">
+      <h1>Edit Contact</h1>
+    </PanelHeader>
+
     <form v-if="contact">
       <label>Name: <input v-model="contact.name" /></label><br />
       <label>Email: <input v-model="contact.email" /></label><br />

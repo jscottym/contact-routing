@@ -25,8 +25,6 @@ function openContact(contactId) {
     <div v-show="isWideEnough || isCurrentPanelComponent" class="panel p-4">
       <h1>Contact List</h1>
 
-      <div>Base: {{ basePath }}</div>
-
       <ul>
         <li v-for="contact in contacts" :key="contact.id">
           <RouterLink :to="`${basePath}/${contact.id}`">

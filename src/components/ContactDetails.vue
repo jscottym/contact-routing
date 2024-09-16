@@ -2,9 +2,11 @@
 import { defineProps } from "vue";
 import {useRouter} from "vue-router";
 import useBasePath from "../composables/useBasePath";
+import PanelHeader from "@/components/PanelHeader.vue";
 
 defineProps({
-  contact: Object,
+    contact: Object,
+    showBack: Boolean,
 });
 const router = useRouter();
 function toEdit() {
@@ -17,8 +19,9 @@ const { navigateToEdit } = useBasePath('contact');
 
 <template>
   <div class="p-4 panel">
-    <h1>Contact Details</h1>
-
+    <PanelHeader :show-back="showBack">
+      <h1>Contact Details</h1>
+    </PanelHeader>
     <div v-if="contact">
       <p>Id: {{ contact.id }}</p>
       <p>Name: {{ contact.name }}</p>

@@ -16,6 +16,10 @@ export default function useBasePath(objectName,  { doProvide, basePath } = {}) {
         }
     }
 
+    function navigateToList(){
+        router.push(basePath);
+    }
+
     function navigateToEdit() {
         router.push(`${basePath}/${route.params[`${objectName}Id`]}/edit`);
     }
@@ -34,6 +38,7 @@ export default function useBasePath(objectName,  { doProvide, basePath } = {}) {
     return {
         entity,
         basePath,
+        navigateToList,
         navigateToEdit,
         navigateToDetails,
         navigateToId,

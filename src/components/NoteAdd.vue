@@ -1,6 +1,11 @@
 <script setup>
 import { ref } from "vue";
 import useBasePath from "@/composables/useBasePath";
+import PanelHeader from "@/components/PanelHeader.vue";
+
+defineProps({
+  showBack: Boolean,
+});
 
 const emit = defineEmits(['add']);
 
@@ -15,7 +20,9 @@ async function add() {
 
 <template>
   <div class="panel">
-    <h1>Add Note</h1>
+    <PanelHeader :show-back="showBack">
+      <h1>Add Note</h1>
+    </PanelHeader>
 
     <div class="flex flex-col gap-2">
       <div>Content:</div>

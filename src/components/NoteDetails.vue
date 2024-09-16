@@ -4,6 +4,11 @@ import {useRoute, useRouter} from "vue-router";
 import {useAsyncState} from "@vueuse/core";
 import useBasePath from "@/composables/useBasePath";
 import {useFakeContactsStore} from "@/stores/fakeContactsStore";
+import PanelHeader from "@/components/PanelHeader.vue";
+
+defineProps({
+    showBack: Boolean,
+});
 
 const route = useRoute();
 const router = useRouter();
@@ -26,7 +31,7 @@ watch(() => route.params.noteId, (newVal) => {
   <div class="flex gap-2">
     <router-view v-slot="{ Component }">
       <template v-if="Component">
-        <component :is="Component" :note="note"/>
+        <component :is="Component" :note="note" :show-back="showBack"/>
       </template>
 
       <template v-else>
@@ -35,7 +40,9 @@ watch(() => route.params.noteId, (newVal) => {
 
           <div v-if="error">Can't load that note</div>
 
-          <h1>Note Details</h1>
+          <PanelHeader :show-back="showBack">
+            <h1>Note Details</h1>
+          </PanelHeader>
 
           <div>{{ note.id }}</div>
           <div>{{ note.content }}</div>
