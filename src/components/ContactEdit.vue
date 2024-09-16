@@ -1,15 +1,16 @@
 <script setup>
 import { defineProps } from "vue";
-import useBasePath from "../composables/useBasePath";
 import PanelHeader from "@/components/PanelHeader.vue";
+import {useVModel} from "@vueuse/core";
 
-defineProps({
+const props = defineProps({
   contact: Object,
   showBack: Boolean,
 });
 
-const { navigateToDetails } = useBasePath('contact');
+const emit = defineEmits(['save']);
 
+const contact = useVModel(props, 'contact', emit);
 </script>
 
 <template>
@@ -18,10 +19,8 @@ const { navigateToDetails } = useBasePath('contact');
       <h1>Edit Contact</h1>
     </PanelHeader>
 
-    <form v-if="contact">
-      <label>Name: <input v-model="contact.name" /></label><br />
-      <label>Email: <input v-model="contact.email" /></label><br />
-      <button type="submit" @click="navigateToDetails">Back to details</button>
-    </form>
+    <label>Name: <input v-model="contact.name"/></label><br/>
+    <label>Email: <input v-model="contact.email"/></label><br/>
+    <button @click="emit('save', contact)">Save contact</button>
   </div>
 </template>
