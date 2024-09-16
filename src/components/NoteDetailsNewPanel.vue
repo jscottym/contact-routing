@@ -8,7 +8,7 @@ import PanelHeader from "@/components/PanelHeader.vue";
 import useShowOrHide from "@/composables/useShowOrHide.js";
 
 const route = useRoute();
-const { isWideEnough, isCurrentPanelComponent } = useShowOrHide(750*3);
+const { isWideEnough, isCurrentPanelComponent } = useShowOrHide(360*4);
 
 const {getNoteById} = useFakeContactsStore();
 const {navigateToEdit, navigateToList} = useBasePath('note');
@@ -28,8 +28,8 @@ function saveNote(updated) {
 </script>
 
 <template>
-  <div class="main-wrapper flex gap-2">
-    <div v-show="isWideEnough || isCurrentPanelComponent" class="panel">
+  <div class="note-details">
+    <div v-show="isWideEnough || isCurrentPanelComponent" class="side-panel">
       <div v-if="isLoading">Loading...</div>
 
       <div v-if="error">Can't load that note</div>
@@ -44,9 +44,16 @@ function saveNote(updated) {
       <button @click="navigateToEdit">Edit</button>
     </div>
 
-    <div v-show="isWideEnough || !isCurrentPanelComponent">
+    <div v-show="isWideEnough || !isCurrentPanelComponent" class="content-area">
       <router-view :note="note" :show-back="!isWideEnough" @save="saveNote" />
     </div>
   </div>
 
 </template>
+
+<style lang="scss" scoped>
+.note-details {
+  @include split-panel-view;
+}
+</style>
+

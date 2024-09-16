@@ -10,19 +10,17 @@ import { cloneDeep } from "lodash";
 
 const props = defineProps({
     contactId: Number,
-    panelSubtract: {
+    panelOffset: {
         type: Number,
         default: 0,
     },
 });
 const route = useRoute();
 
-watch(()=>props.panelSubtract, (newVal)=> {
-  provide('panelSubtract', props.panelSubtract);
-}, {immediate: true});
+provide('panelOffset', props.panelOffset);
 
 const { basePath, navigateToDetails } = useBasePath('contact');
-const { isWideEnough, isCurrentRoute } = useShowOrHide(750, /^\/contacts\/[^/]+$/);
+const { isWideEnough, isCurrentRoute } = useShowOrHide(360*2, /^\/contacts\/[^/]+$/);
 
 const { getContactById, updateContact } = useFakeContactsStore();
 const contactId = computed(()=> props.contactId ?? route.params.contactId);
@@ -53,8 +51,8 @@ async function saveContact(contact) {
 </script>
 
 <template>
-  <div class="flex gap-2">
-    <div v-show="isWideEnough || isCurrentRoute" class="panel p-4">
+  <div class="contact-page">
+    <div v-show="isWideEnough || isCurrentRoute" class="side-panel w-full">
       <PanelHeader :show-back="!isWideEnough">
         <h1>Contact</h1>
       </PanelHeader>
@@ -67,11 +65,11 @@ async function saveContact(contact) {
 
         <RouterLink :to="`${basePath}/${contact.id}/notes`">Notes</RouterLink>
 
-        Panel width subtract: {{ props.panelSubtract }}
+        Panel width subtract: {{ props.panelOffset }}
       </div>
     </div>
 
-    <div v-show="isWideEnough || (!isCurrentRoute)">
+    <div v-show="isWideEnough || (!isCurrentRoute)" class="content-area">
       <RouterView
           :contact="contact"
           :show-back="!isWideEnough"
@@ -81,3 +79,9 @@ async function saveContact(contact) {
 
   </div>
 </template>
+
+<style lang="scss" scoped>
+.contact-page {
+  @include split-panel-view;
+}
+</style>

@@ -5,8 +5,8 @@ import useBasePath from "../composables/useBasePath";
 import useShowOrHide from "../composables/useShowOrHide";
 import {provide} from "vue";
 
-const listPanelSize = 1450;
-const { isWideEnough, isCurrentPanelComponent } = useShowOrHide(listPanelSize, /^\/contacts$/);
+const contactListPanelWidth = 360;
+const { isWideEnough, isCurrentPanelComponent } = useShowOrHide(contactListPanelWidth, /^\/contacts$/);
 
 const { basePath, isListRoute, navigateToDetails } = useBasePath('contact', {
     doProvide: true,
@@ -22,8 +22,8 @@ function openContact(contactId) {
 </script>
 
 <template>
-  <div class="main-wrapper flex gap-2">
-    <div v-show="isWideEnough || isCurrentPanelComponent" class="panel p-4">
+  <div class="main-wrapper contact-list-page">
+    <div v-show="isWideEnough || isCurrentPanelComponent" class="side-panel" :style="`min-width: ${contactListPanelWidth}px`">
       <h1>Contact List</h1>
 
      <div class="flex flex-col gap-2">
@@ -38,14 +38,20 @@ function openContact(contactId) {
      </div>
     </div>
 
-    <div v-show="isWideEnough || !isCurrentPanelComponent" >
-      <router-view :panel-subtract="listPanelSize"/>
+    <div v-show="isWideEnough || !isCurrentPanelComponent" class="content-area" >
+      <router-view :panel-offset="contactListPanelWidth"/>
     </div>
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .main-wrapper {
-  height: 100dvh;
+    flex: 1;
+    min-height: 100%;
+    width: 100dvw;
+}
+
+.contact-list-page {
+  @include split-panel-view;
 }
 </style>

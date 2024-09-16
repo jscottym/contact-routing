@@ -18,7 +18,7 @@ const { navigateToEdit } = useBasePath('contact');
 </script>
 
 <template>
-  <div class="p-4 panel">
+  <div class="panel">
     <PanelHeader :show-back="showBack">
       <h1>Contact Details</h1>
     </PanelHeader>

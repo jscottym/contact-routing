@@ -7,9 +7,10 @@ import { useAsyncState } from "@vueuse/core";
 import useShowOrHide from "../composables/useShowOrHide";
 import PanelHeader from "@/components/PanelHeader.vue";
 
-const { isWideEnough, isCurrentPanelComponent } = useShowOrHide(750*2);
+const { isWideEnough, isCurrentPanelComponent } = useShowOrHide(360*3);
 const props = defineProps({
   contact: Object,
+  showBack: Boolean,
 });
 
 const route = useRoute();
@@ -53,10 +54,10 @@ async function addContactNote(note) {
 </script>
 
 <template>
-  <div class="main-wrapper flex gap-2">
-    <div v-show="isWideEnough || isCurrentPanelComponent" class="panel">
+  <div class="notes-list">
+    <div v-show="isWideEnough || isCurrentPanelComponent" class="side-panel">
       <div class="flex flex-col gap-2">
-        <PanelHeader :show-back="!isWideEnough">
+        <PanelHeader :show-back="showBack">
           <h1>Notes List</h1>
         </PanelHeader>
 
@@ -74,15 +75,15 @@ async function addContactNote(note) {
       </div>
     </div>
 
-    <div v-show="isWideEnough || !isCurrentPanelComponent">
+    <div v-show="isWideEnough || !isCurrentPanelComponent" class="content-area">
       <router-view @add="addContactNote" :show-back="!isWideEnough" />
     </div>
 
   </div>
 </template>
 
-<style scoped>
-.main-wrapper {
-  height: 100dvh;
+<style lang="scss" scoped>
+.notes-list {
+  @include split-panel-view;
 }
 </style>

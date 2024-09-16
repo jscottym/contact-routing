@@ -12,7 +12,7 @@ const upOneLevelPath = computed(()=> {
 </script>
 
 <template>
-  <div class="flex flex-col justify-start h-full gap-2">
+  <div class="app-wrapper">
     <header>
       <div class="wrapper">
         <nav>
@@ -29,6 +29,13 @@ const upOneLevelPath = computed(()=> {
 </template>
 
 <style scoped>
+.app-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 nav {
   display: flex;
   gap: 1rem;

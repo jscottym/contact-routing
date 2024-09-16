@@ -1,0 +1,915 @@
+//------------------------------------------------------------
+// Color Primitives - Light Theme
+//------------------------------------------------------------
+
+$color-paper: white;
+$color-paper-050: rgba(255,255,255,.02);
+$color-paper-100: rgba(255,255,255,.06);
+$color-paper-200: rgba(255,255,255,.09);
+$color-paper-300: rgba(255,255,255,.125); // Not in use
+$color-paper-400: rgba(255,255,255,.20); // Not in use
+$color-paper-500: rgba(255,255,255,.23); // Not in use
+$color-paper-600: rgba(255,255,255,.29);
+$color-paper-700: rgba(255,255,255,.4);
+$color-paper-800: rgba(255,255,255,.6);
+$color-paper-900: rgba(255,255,255,.825);
+
+$color-ink: black;
+$color-ink-050: rgba(0,0,0,.02);
+$color-ink-100: rgba(0,0,0,.06);
+$color-ink-200: rgba(0,0,0,.09);
+$color-ink-300: rgba(0,0,0,.125); // Not in use
+$color-ink-400: rgba(0,0,0,.20); // Not in use
+$color-ink-500: rgba(0,0,0,.23); // Not in use
+$color-ink-600: rgba(0,0,0,.29);
+$color-ink-700: rgba(0,0,0,.4);
+$color-ink-800: rgba(0,0,0,.6);
+$color-ink-900: rgba(0,0,0,.825);
+
+$color-gray-050: #fafafa;
+$color-gray-100: #f0f0f0;
+$color-gray-200: #e7e7e7;
+$color-gray-300: #dddddd; // Not in use
+$color-gray-400: #cccccc;
+$color-gray-500: #c5c5c5; // Not in use
+$color-gray-600: #b5b5b5;
+$color-gray-700: #979797;
+$color-gray-800: #656565;
+$color-gray-900: #2c2c2c;
+
+$color-blue-050: #d6f0ff;
+$color-blue-100: #b9dcff;
+$color-blue-200: #89c7ff;
+$color-blue-300: #53b1ff;
+$color-blue-400: #1fa0ff;
+$color-blue-500: #008fff;
+$color-blue-600: #0080ff;
+$color-blue-700: #006ceb; // primary blue
+$color-blue: #006ceb; // primary blue
+$color-blue-800: #0f5cd8;
+$color-blue-900: #1a3ab9;
+
+$color-green-050: #e8f6e8;
+$color-green-100: #c7e8c5;
+$color-green-200: #a3daa1;
+$color-green-300: #7dcc7a;
+$color-green-400: #5fc15d;
+$color-green-500: #41b53e;
+$color-green-600: #36a635; // Primary Green
+$color-green-700: #2a942a;
+$color-green-800: #1c831e;
+$color-green-900: #006406;
+
+$color-navy-050: #e5e8f0;
+$color-navy-100: #bec6dc;
+$color-navy-200: #94a2c4;
+$color-navy-300: #6b7ead;
+$color-navy-400: #4b639d;
+$color-navy-500: #284a8e;
+$color-navy-600: #214385;
+$color-navy-700: #183a7a;
+$color-navy-800: #0f306e; // Primary Navy
+$color-navy-900: #032057;
+
+$color-forest-050: #e1f3f0;
+$color-forest-100: #b5e2da;
+$color-forest-200: #85d0c2;
+$color-forest-300: #56bca9;
+$color-forest-400: #34ad97;
+$color-forest-500: #1d9e86;
+$color-forest-600: #199179;
+$color-forest-700: #15806a;
+$color-forest-800: #10705b;
+$color-forest-900: #085440; // Primary Forest
+
+$color-red-025: #fff4f4;
+$color-red-050: #fde7e6;
+$color-red-100: #ffc8b8;
+$color-red-200: #ffa48b;
+$color-red-300: #ff7f5c;
+$color-red-400: #ff6038;
+$color-red-500: #ff3d11;
+$color-red-600: #fc370c;
+$color-red-700: #ee2f05;
+$color-red-800: #e02500; // Primary Red
+$color-red-900: #c80d00;
+$color-red-950: #ba0c00;
+
+$color-orange-050: #fff6df;
+$color-orange-100: #ffe8af;
+$color-orange-200: #fed97c;
+$color-orange-300: #fecb47;
+$color-orange-400: #fdbe1b;
+$color-orange-500: #fbb400;
+$color-orange-600: #fba600;
+$color-orange-700: #fb9300;
+$color-orange-800: #fb8200;
+$color-orange-900: #fa6000; // Primary Orange
+
+$color-yellow-050: #fff8e4;
+$color-yellow-100: #faf8c0;
+$color-yellow-200: #f6f396;
+$color-yellow-300: #f3ee6c;
+$color-yellow-400: #f0ea48;
+$color-yellow-500: #ede51d;
+$color-yellow-600: #efd518;
+$color-yellow-700: #efbb06; // primary yellow
+$color-yellow-800: #efa400;
+$color-yellow-900: #ed7a00;
+
+//------------------------------------------------------------
+// Data visualization colors (not luminosity-based)
+//------------------------------------------------------------
+
+$color-data-01: #0042db;
+$color-data-02: #ffc400;
+$color-data-03: #f44366;
+$color-data-04: #8bdc00;
+$color-data-05: #9941d0;
+$color-data-06: #99b2f1;
+$color-data-07: #ffdc66;
+$color-data-08: #f88ea3;
+$color-data-09: #ffb877;
+$color-data-10: #c28de3;
+
+//------------------------------------------------------------
+// Extended color palette (not generally in-use currently)
+//------------------------------------------------------------
+
+$color-emerald-050: #e1fbf0;
+$color-emerald-100: #b5f4da;
+$color-emerald-200: #7eedc2;
+$color-emerald-300: #00e6a9; // Primary emerald
+$color-emerald-400: #00de94;
+$color-emerald-500: #00d581;
+$color-emerald-600: #00c474;
+$color-emerald-700: #00b166;
+$color-emerald-800: #009f59;
+$color-emerald-900: #007d41;
+
+$color-aqua-050: #e1f9ff;
+$color-aqua-100: #b2f1ff;
+$color-aqua-200: #7ce8ff;
+$color-aqua-300: #36deff; // Primary aqua
+$color-aqua-400: #00d6fc;
+$color-aqua-500: #00cdf8;
+$color-aqua-600: #00bde4;
+$color-aqua-700: #00a7c7;
+$color-aqua-800: #0093ae;
+$color-aqua-900: #00707f;
+
+$color-purple-050: #efe8fd;
+$color-purple-100: #d6c6f9;
+$color-purple-200: #baa0f6;
+$color-purple-300: #9c78f4;
+$color-purple-400: #8358f1;
+$color-purple-500: #6838ed; // Primary purple
+$color-purple-600: #5c33e6;
+$color-purple-700: #492bdd;
+$color-purple-800: #3424d7;
+$color-purple-900: #0015cf;
+
+$color-pink-050: #ffe2eb;
+$color-pink-100: #ffb7cd;
+$color-pink-200: #ff86ab;
+$color-pink-300: #ff4e89;
+$color-pink-400: #ff006f; // Primary pink
+$color-pink-500: #fd0054;
+$color-pink-600: #ec0053;
+$color-pink-700: #d70050;
+$color-pink-800: #c3004e;
+$color-pink-900: #9d004b;
+
+$color-beige-050: #fdfbfa;
+$color-beige-100: #f9f7f6; // Primary beige
+$color-beige-200: #f4f2f1;
+$color-beige-300: #e7e5e4;
+$color-beige-400: #c5c3c2;
+$color-beige-500: #a6a4a4;
+$color-beige-600: #7d7b7a;
+$color-beige-700: #686766;
+$color-beige-800: #494746;
+$color-beige-900: #272625;
+
+
+//------------------------------------------------------------
+// Colors
+//------------------------------------------------------------
+
+// Simple and brand color aliases
+$color-blue: $color-blue-700;
+$color-green: $color-green-600;
+$color-navy: $color-navy-800;
+$color-pink: $color-pink-400;
+$color-purple: $color-purple-500;
+$color-aqua: $color-aqua-300;
+$color-forest: $color-forest-900;
+$color-red: $color-red-800;
+$color-yellow: $color-yellow-700;
+$color-beige: $color-beige-100;
+$color-emerald: $color-emerald-300;
+$color-orange: $color-orange-900;
+$color-gray: $color-gray-800;
+
+// Type colors
+$color-text-normal: $color-ink-900;
+$color-text-high-contrast: $color-ink;
+$color-text-subtle: $color-ink-800;
+$color-text-disabled: $color-ink-700;
+$color-text-reversed: $color-paper;
+$color-text-link: $color-blue-700;
+$color-text-link-hover: $color-blue-800;
+$color-text-accent: $color-navy;
+$color-text-decorative: $color-forest;
+$color-text-positive: $color-green-700;
+$color-text-link-reversed: $color-blue-200;
+$color-text-primary: $color-blue;
+
+// Special use colors
+$color-background: $color-paper;
+$transparent-background: $color-ink-800;
+$placeholder-background: linear-gradient(to right, #{$color-ink-200} 4%, #{$color-ink-050} 20%, #{$color-ink-200} 40%);
+$dropdown-color-selected: $color-blue;
+$dropdown-color-hover: $color-gray-200;
+
+//------------------------------------------------------------
+// DEPRECATED Color aliases
+//------------------------------------------------------------
+
+$color-black: $color-ink;
+$color-white: $color-paper;
+
+//primary
+$color-primary: $color-blue;
+$color-primary-light: $color-blue-200 !default;
+$color-primary-lighter: $color-blue-100 !default;
+$color-primary-lightest: $color-blue-050 !default;
+$color-primary-dark: $color-blue-700 !default;
+$color-primary-darker: $color-blue-800 !default;
+$color-primary-darkest: $color-blue-900 !default;
+$color-primary-text: $color-blue !default;
+
+//secondary
+$color-secondary: $color-green;
+$color-secondary-light: $color-green-200 !default;
+$color-secondary-lighter: $color-green-100 !default;
+$color-secondary-lightest: $color-green-050 !default;
+$color-secondary-dark: $color-green-700 !default;
+$color-secondary-darker: $color-green-800 !default;
+$color-secondary-darkest: $color-green-900 !default;
+$color-secondary-text: $color-green !default;
+
+//tertiary
+$color-tertiary: $color-yellow;
+$color-tertiary-light: $color-yellow-200 !default;
+$color-tertiary-lighter: $color-yellow-100 !default;
+$color-tertiary-lightest: $color-yellow-050 !default;
+$color-tertiary-dark: $color-yellow-700 !default;
+$color-tertiary-darker: $color-yellow-800 !default;
+$color-tertiary-darkest: $color-yellow-900 !default;
+$color-tertiary-text: $color-yellow-900 !default;
+
+//accent
+$color-accent: $color-green;
+$color-accent-light: $color-green-200 !default;
+$color-accent-lighter: $color-green-100 !default;
+$color-accent-lightest: $color-green-050 !default;
+$color-accent-dark: $color-green-700 !default;
+$color-accent-darker: $color-green-800 !default;
+$color-accent-darkest: $color-green-900 !default;
+$color-accent-text: $color-green !default;
+
+//Gray
+$color-gray-125: $color-gray-900;
+$color-gray-90: $color-gray-800;
+$color-gray-80: $color-gray-700;
+$color-gray-70: $color-gray-600;
+$color-gray-60: $color-gray-500;
+$color-gray-50: $color-gray-400;
+$color-gray-40: $color-gray-300;
+$color-gray-30: $color-gray-200;
+$color-gray-20: $color-gray-100;
+$color-gray-10: $color-gray-050;
+$color-gray-lightest: $color-gray-050;
+$color-gray-lighter: $color-gray-200;
+$color-gray-light: $color-gray-600;
+$color-gray-mid: $color-gray-600;
+$color-gray-dark: $color-gray-700;
+$color-gray-darker: $color-gray-800;
+$color-gray-darkest: $color-gray-900;
+$color-gray-trans-darkest: $color-ink-600;
+$color-gray-trans: $color-ink-800;
+$color-gray-trans-light: $color-ink-600;
+$color-gray-trans-lighter: $color-ink-200;
+$color-gray-trans-lightest: $color-ink-050;
+$color-gray-text: $color-ink-900 !default;
+
+//Green
+$color-green-light: $color-green-200;
+$color-green-lighter: $color-green-100;
+$color-green-lightest: $color-green-050;
+$color-green-dark: $color-green-700 !default;
+$color-green-darker: $color-green-800 !default;
+$color-green-darkest: $color-green-900 !default;
+$color-green-text: $color-green !default;
+
+$color-emerald-light: $color-emerald-200;
+$color-emerald-lighter: $color-emerald-100;
+$color-emerald-lightest: $color-emerald-050;
+
+$color-forest-light: $color-forest-200;
+$color-forest-lighter: $color-forest-100;
+$color-forest-lightest: $color-forest-050;
+
+//blue
+$color-blue-light: $color-blue-200;
+$color-blue-lighter: $color-blue-100;
+$color-blue-lightest: $color-blue-050;
+$color-blue-dark: $color-blue-700 !default;
+$color-blue-darker: $color-blue-800 !default;
+$color-blue-darkest: $color-blue-900 !default;
+$color-blue-text: $color-blue !default;
+
+$color-navy-light: $color-navy-200;
+$color-navy-lighter: $color-navy-100;
+$color-navy-lightest: $color-navy-050;
+
+$color-aqua-light: $color-aqua-200;
+$color-aqua-lighter: $color-aqua-100;
+$color-aqua-lightest: $color-aqua-050;
+
+//Red
+$color-red-light: $color-red-200 !default;
+$color-red-lighter: $color-red-100 !default;
+$color-red-lightest: $color-red-050 !default;
+$color-red-dark: $color-red-800 !default;
+$color-red-darker: $color-red-900 !default;
+$color-red-darkest: $color-red-950 !default;
+$color-red-text: $color-red !default;
+
+//Orange
+$color-orange-light: $color-orange-200 !default;
+$color-orange-lighter: $color-orange-100 !default;
+$color-orange-lightest: $color-orange-050 !default;
+$color-orange-dark: $color-orange-700 !default;
+$color-orange-darker: $color-orange-800 !default;
+$color-orange-darkest: $color-orange-900 !default;
+$color-orange-text: $color-orange !default;
+
+//Yellow
+$color-yellow-light: $color-yellow-200 !default;
+$color-yellow-lighter: $color-yellow-100 !default;
+$color-yellow-lightest: $color-yellow-050 !default;
+$color-yellow-dark: $color-yellow-700 !default;
+$color-yellow-darker: $color-yellow-800 !default;
+$color-yellow-darkest: $color-yellow-900 !default;
+$color-yellow-text: $color-yellow-900 !default;
+
+//Pink
+$color-pink-light: $color-pink-200 !default;
+$color-pink-lighter: $color-pink-100 !default;
+$color-pink-lightest: $color-pink-050 !default;
+$color-pink-dark: $color-pink-700 !default;
+$color-pink-darker: $color-pink-800 !default;
+$color-pink-darkest: $color-pink-900 !default;
+$color-pink-text: $color-pink !default;
+
+//Purple
+$color-purple-light: $color-purple-200 !default;
+$color-purple-lighter: $color-purple-100 !default;
+$color-purple-lightest: $color-purple-050 !default;
+$color-purple-dark: $color-purple-700 !default;
+$color-purple-darker: $color-purple-800 !default;
+$color-purple-darkest: $color-purple-900 !default;
+$color-purple-text: $color-purple !default;
+
+// Deprecated type colors
+$color-font-primary: $color-ink-900;
+$color-trans-text: $color-ink-600;
+$color-text: $color-ink-900;
+$color-headlines: $color-ink-900;
+$color-link: $color-blue;
+$color-link-disabled: $color-gray-200;
+
+// Data colors
+$chart-line-color-1: $color-data-01;
+$chart-line-color-2: $color-data-02;
+$chart-line-color-3: $color-data-03;
+$chart-line-color-4: $color-data-04;
+$chart-line-color-5: $color-data-05;
+
+
+//------------------------------------------------------------
+// Base
+//------------------------------------------------------------
+$rem-base: 16px;
+$global-padding: 1rem;
+$border-radius: .75rem;
+
+//------------------------------------------------------------
+// Elevation
+//------------------------------------------------------------
+
+$elevation-z0: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.12);
+$elevation-z1: 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12), 0 1px 3px 0 rgba(0, 0, 0, .2);
+$elevation-z2: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .12),  0 1px 5px 0 rgba(0, 0, 0, .2);
+$elevation-z3: 0 3px 4px 0 rgba(0, 0, 0, .14), 0 3px 3px -2px rgba(0, 0, 0, .12),  0 1px 8px 0 rgba(0, 0, 0, .2);
+$elevation-z4: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2);
+$elevation-z6: 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12), 0 3px 5px -1px rgba(0, 0, 0, .2);
+$elevation-z8: 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12), 0 5px 5px -3px rgba(0, 0, 0, .2);
+$elevation-z12: 0 12px 17px 2px rgba(0, 0, 0, .14), 0 5px 22px 4px rgba(0, 0, 0, .12), 0 7px 8px -4px rgba(0, 0, 0, .2);
+$elevation-z16: 0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .2);
+$elevation-z24: 0 24px 38px 3px rgba(0, 0, 0, .14), 0 9px 46px 8px rgba(0, 0, 0, .12), 0 11px 15px -7px rgba(0, 0, 0, .2);
+
+// Deprecated elevations
+$drop-shadow-z1: 0 0 0 1px rgba(0, 0, 0, .1), 0 1px 3px 0 rgba(0, 0, 0, .15);
+$drop-shadow-z2: 0 0 0 1px rgba(0, 0, 0, .05), 0 3px 6px 0 rgba(0, 0, 0, .15);
+$drop-shadow-z3: 0 0 0 1px rgba(0, 0, 0, .05), 0 2px 16px 0 rgba(0, 0, 0, .15);
+$drop-shadow-z4: 0 31px 41px 0 rgba(0, 0, 0, .20), 0 2px 16px 0 rgba(0, 0, 0, .15);
+
+//------------------------------------------------------------
+// Buttons
+//------------------------------------------------------------
+
+$button-med-sides: 1.25rem;
+$button-med-font-size: .875rem;
+$button-med-height: 2.5rem;
+$button-med-icon-size: .875rem;
+$button-md-sides: 1rem;
+$button-md-height: 2.5rem;
+$button-text-disabled-color-text: $color-ink-600;
+$button-md-font-size: .875rem;
+$button-sm-sides: 1rem;
+$button-lg-sides: 1.5rem;
+$button-sm-font-size: .75rem;
+$button-lg-font-size: 1rem;
+$button-border-thickness: 1px;
+$button-letter-spacing: normal;
+$button-text-disabled-color: $color-ink-200;
+$button-border-radius: .5rem;
+$button-md-icon-size: 1rem;
+$button-sm-icon-size: .875rem;
+$button-lg-height: 3rem;
+$button-lg-icon-size: 1.125rem;
+$button-sm-height: 2rem;
+
+
+//------------------------------------------------------------
+// Fonts
+//------------------------------------------------------------
+$font-size-xs: .75rem;
+$font-size-sm: .875rem;
+$font-size-md: 1rem;
+$font-size-lg: 1.25rem;
+$font-size-xl: 1.5rem;
+$font-size-jumbo: 2rem;
+$font-size-mega: 3.25rem;
+
+$font-size-currency: 3.25rem;
+$font-size-large-number: 1.5rem;
+$font-size-empty-state-title: 3.25rem;
+
+$line-height-xs: 1rem;
+$line-height-sm: 1rem;
+$line-height-md: 1.25rem;
+$line-height-lg: 1.5rem;
+$line-height-xl: 2.25rem;
+$line-height-xxl: 3rem; // Jumbo
+$line-height-mega: 4.875rem;
+
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+$font-weight-headlines: $font-weight-regular;
+$font-weight-empty-state-title: $font-weight-bold;
+
+$font-family: 'Sul Sans', Helvetica, Arial, sans-serif;
+$font-family-monospace: 12px/1.4 Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+
+$font-family-empty-state-title: 'Poppins', 'Sul Sans', Helvetica, Arial, sans-serif;
+$font-family-secondary-title: 'Poppins', 'Sul Sans', Helvetica, Arial, sans-serif;
+$headline-font-family: 'Sul Sans', Helvetica, Arial, sans-serif;
+$font-table-number: 'Sul Mono', Monaco, Courier, monospace;
+
+//------------------------------------------------------------
+// Animation
+//------------------------------------------------------------
+$animation-duration: 250ms;
+$animation-in-timing: cubic-bezier(.23, 1, .32, 1);
+$animation-out-timing: cubic-bezier(.215, .61, .355, 1);
+$animation-scaleinout-timing: cubic-bezier(.68, -.4, .26, 1.55);
+$animation-circle-timing: cubic-bezier(.4, 0, .2, 1);
+
+
+//------------------------------------------------------------
+// Z-index
+//------------------------------------------------------------
+$zindex-wizard: 900;
+$zindex-header: 100;
+$zindex-floating-button: 150;
+$zindex-dropdown: 940;
+$zindex-loading: 1000;
+$zindex-nav-shield: 300;
+$zindex-nav: 200;
+$zindex-tooltip: 1000;
+$zindex-popover: 825;
+$zindex-toast: 950;
+$zindex-animate-layover: 900;
+$zindex-modal: 900;
+
+
+//------------------------------------------------------------
+//
+// Components
+//
+//------------------------------------------------------------
+
+//------------------------------------------------------------
+// Avatar
+//------------------------------------------------------------
+$avatar-color-default: $color-gray-600;
+$avatar-color-user: $color-gray-100;
+$avatar-font-size: .75rem;
+$avatar-color-user-text: $color-gray-800;
+$avatar-shadow: $elevation-z4;
+$avatar-border-color: $color-paper;
+$avatar-color-default-text: $color-paper;
+$avatar-color-company-text: $color-paper;
+$avatar-color-company: $color-gray-800;
+
+//------------------------------------------------------------
+// Cards
+//------------------------------------------------------------
+$card-footer-color: $color-blue-700;
+$card-background-color: $color-paper;
+$card-footer-font-size: 1rem;
+$card-footer-font-weight: 400;
+
+//------------------------------------------------------------
+// Dropdown
+//------------------------------------------------------------
+$dropdown-maxheight: 15rem;
+$dropdown-minwidth: 15.625rem;
+$dropdown-shadow: $elevation-z8;
+
+
+//------------------------------------------------------------
+// Error Banner
+//------------------------------------------------------------
+$error-banner-background-color: $color-paper;
+$error-banner-color: $color-gray-900;
+$error-banner-border-color: $color-gray-200;
+
+
+//------------------------------------------------------------
+// Feeds
+//------------------------------------------------------------
+$feeds-note-color: $color-gray-700;
+$feeds-line-color: $color-gray-700;
+$feeds-file-color: $color-gray-700;
+$feeds-email-received: $color-forest-200;
+$feeds-task-color: $color-gray-700;
+$feeds-timestamp-color: $color-gray-500;
+$feeds-tag-color: $color-gray-700;
+$feeds-form-deal-contact-color: $color-gray-700;
+$feeds-email-color: $color-gray-700;
+$feeds-appointment-color: $color-gray-700;
+$feeds-campaign-color: $color-gray-700;
+$feeds-default-color: $color-gray-800;
+
+//------------------------------------------------------------
+// Forms
+//------------------------------------------------------------
+
+// Input
+$input-height-small: 2rem;
+$input-label-font-size: 0.75rem;
+$input-border-color: $color-gray-200;
+$input-placeholder-color: $color-ink-800;
+$input-label-color: $color-text-subtle;
+$input-margin-bottom: 1.5rem;
+$input-height: 2.5rem;
+$input-border: 1px solid #{$color-gray-400};
+$input-border-radius: .5rem;
+$input-icon-color: $color-blue;
+$input-color-active: $color-blue;
+$input-padding: 1rem;
+$input-border-thickness: 1px;
+$input-active-border-thickness: 1px;
+$input-error-color: $color-red;
+$input-font-size: .875rem;
+$input-height-sm: 2rem;
+
+// Checkbox
+$checkbox-size: 1.25rem;
+$checkbox-border-color: $color-gray-800;
+$checkbox-background-color: $color-blue;
+$checkbox-border-width: 2px;
+$checkbox-check-color: $color-paper;
+$checkbox-border-color-hover: $color-navy;
+$checkbox-radius: 2px;
+
+// Radio
+$radio-size: 1rem;
+$radio-border-width: .125rem;
+$radio-disabled-color: $color-gray-500;
+$radio-error-color: $color-red;
+$radio-active-color: $color-blue;
+
+// Select
+$select-field-error-color: $color-red;
+
+// Color picker
+$color-picker-active-shadow: 0 0 0 1px #{$color-blue};
+$color-picker-width: 12.5rem;
+$color-picker-swatch-border: $color-paper;
+$color-picker-swatch-size: 3.75rem;
+$color-picker-swatch-icon-size: 1.5rem;
+$color-picker-swatch-shadow: $elevation-z4;
+
+//------------------------------------------------------------
+// Logo
+//------------------------------------------------------------
+$logo-spacing: .5rem;
+$logo-color: $color-green;
+$color-logo: $color-green;
+$logo-width: 1.8rem;
+$wordmark-width: 7.4375rem;
+
+
+//------------------------------------------------------------
+// Media
+//------------------------------------------------------------
+$small: "max-width: 949px";
+$medium: "min-width: 950px";
+$medium-down: "max-width: 1199px";
+$large: "min-width: 1200px";
+$container-width: 75rem;
+
+//------------------------------------------------------------
+// Icons
+//------------------------------------------------------------
+$icon-stroke-width: 1px;
+$font-size-icons: 1.5rem;
+$icon-size-lg: 1.5rem;
+$icon-size-sm: 1rem;
+$icon-size: 1.25rem;
+$icon-size-small: 1rem;
+
+//------------------------------------------------------------
+// Modal
+//------------------------------------------------------------
+$modal-size-xl: 60rem;
+$modal-size-med: 40rem;
+$modal-background-color: $color-paper;
+$modal-size-sm: 25rem;
+$modal-size-xs: 20rem;
+$modal-header-height: 3.5rem;
+$modal-size-lg: 50rem;
+$modal-size-fluid: 80%;
+
+//------------------------------------------------------------
+// Nav
+//------------------------------------------------------------
+$nav-account-dropdown-color-hover: $color-gray-800;
+$nav-color-icon-default: $color-gray-900;
+$nav-color-current: $color-gray-800;
+$nav-active-item-color: $color-forest;
+$nav-hover-background-opacity: 0.5;
+$nav-color-hover: $color-gray-900;
+$nav-active-icon-stroke-width: 2px;
+$nav-border-accent-thickness: 2px;
+$nav-tool-item-background-hover: $color-gray-100;
+$nav-color-default: $color-gray-800;
+$nav-header-color-background: $color-paper;
+$nav-height: 3.5rem;
+$nav-arrow-background-color: $color-gray-200;
+$nav-companyname-color: $color-gray-600;
+$nav-current-color-background: $color-green-050;
+$nav-border-accent-color: $color-green;
+$nav-searchbar-color: $color-gray-100;
+$nav-active-font-weight: 500;
+$nav-width-open: 16.875rem;
+$nav-color-icon-hover: $color-gray-900;
+
+
+//------------------------------------------------------------
+// Popover
+//------------------------------------------------------------
+$popover-shadow: $elevation-z8;
+$popover-background-color: $color-paper;
+$popover-arrow-size: .5rem;
+
+
+//------------------------------------------------------------
+// Tab
+//------------------------------------------------------------
+$tab-icon-background-color: $color-paper;
+$tab-icon-color: $color-gray-800;
+$tab-color-active: $color-green;
+$tab-text-color-active: $color-ink;
+$tab-border-color: $color-gray-200;
+$tab-border-color-hover: $color-gray-500;
+$tab-spacing: 20px;
+$tab-color: $color-gray-900;
+$tab-icon-color-active: $color-paper;
+$tab-icon-border-thickness: 1px;
+$tab-icon-background-color-active: $color-gray-800;
+$tab-thickness-active: 2px;
+$tab-icon-tab-border-color-active: transparent;
+$tab-icon-border-color: $color-gray-200;
+$tab-font-weight: 500;
+$tab-overflow-container-height: 2.6666666666666665rem;
+
+
+//------------------------------------------------------------
+// Progress
+//------------------------------------------------------------
+$progress-bar-height: .5rem;
+$progress-background: $color-gray-200;
+$progress-color: $color-blue;
+$progress-value-color: $color-blue;
+
+
+//------------------------------------------------------------
+// Toast
+//------------------------------------------------------------
+$toast-background-color: $color-gray-900;
+$toast-color: $color-paper;
+$toast-action-color: $color-blue-100;
+$toast-max-width: 20rem;
+$toast-box-shadow: $elevation-z6;
+$toast-drop-shadow: $elevation-z6;
+
+
+//------------------------------------------------------------
+// Table Grid
+//------------------------------------------------------------
+$table-grid-checkbox-height: 1.825rem;
+$table-grid-selected-background-color: $color-gray-200;
+$table-grid-selected-border-color: $color-paper;
+$table-grid-trowser-color: $color-paper;
+$table-grid-link-color: $color-text-normal;
+
+$trowser-background-color: $color-paper;
+$trowser-box-shadow: $elevation-z4;
+$trowser-height: 4.5rem;
+
+
+//------------------------------------------------------------
+// Toggle Switch
+//------------------------------------------------------------
+$toggle-switch-color-on-disabled: $color-blue-200;
+$toggle-switch-background-color-on-disabled: $color-blue-100;
+$toggle-switch-background-color-off-disabled: $color-gray-100;
+$toggle-switch-color: $color-blue;
+$toggle-switch-background-color: $color-blue-200;
+$toggle-switch-height: 1.5rem;
+$toggle-switch-label-color: $color-gray-900;
+$toggle-switch-thumb-color: $color-paper;
+$toggle-slider-width: 2.5rem;
+$toggle-slider-background-color: $color-gray-200;
+$toggle-slider-height: .625rem;
+$toggle-switch-handle-color: $color-paper;
+
+
+//------------------------------------------------------------
+// Tooltip
+//------------------------------------------------------------
+$tooltip-background-color: $color-gray-900;
+$tooltip-color: $color-paper;
+$tooltip-width: $color-ink; // NOTE: Not sure why this is a color
+
+//------------------------------------------------------------
+// Upload
+//------------------------------------------------------------
+$upload-border-color: $color-gray-200;
+$upload-border-style: 1px dashed #{$color-gray-200};
+$upload-icon-color: $color-gray-500;
+$upload-button-color: $color-blue;
+$upload-formats-color: $color-gray-800;
+$upload-error-color: $color-red;
+$upload-file-type-background-color: $color-gray-050;
+$upload-file-type-color: $color-paper;
+$upload-cta-color: $color-blue;
+
+//------------------------------------------------------------
+// Wizard
+//------------------------------------------------------------
+$wizard-border-color: $color-gray-200;
+$wizard-border-style: 1px solid #{$color-gray-200};
+$wizard-header-background: $color-paper;
+$wizard-header-color: $color-gray-800;
+
+
+@mixin container($padding-top-bottom: 1rem, $padding-left-right: 1rem, $max-width: 1200px) {
+    position: relative;
+    padding: $padding-top-bottom $padding-left-right;
+
+    @media($medium) {
+        max-width: $max-width;
+        margin-left: auto;
+        margin-right: auto;
+        padding: $padding-top-bottom * 1.5 $padding-left-right * 1.5;
+    }
+}
+
+@mixin overflowY {
+    overflow-y: auto;
+
+    @supports (-webkit-overflow-scrolling: touch) {
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+@mixin side-panel {
+    @include overflowY;
+
+    transform: translateX(100%);
+    background-color: $color-paper;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 999;
+
+    @media($medium) {
+        max-width: 400px;
+    }
+
+    &.open {
+        transform: translateX(0);
+        box-shadow: $drop-shadow-z2;
+    }
+
+    [dir=rtl] & {
+        transform: translateX(-100%);
+        right: auto;
+        left: 0;
+
+        &.open {
+            transform: translateX(0);
+        }
+    }
+}
+
+@mixin border-end($value, $strict: false) {
+    @if $strict == true {
+        [dir=ltr] & {
+            border-right: $value;
+        }
+    } @else {
+        border-right: $value;
+    }
+
+    [dir=rtl] & {
+        @if $strict == false { border-right: none; }
+        border-left: $value;
+    }
+}
+
+@mixin split-panel-view {
+    --split-layout-side-panel-width: 360px;
+
+    @include container(0, 0, 100%);
+
+    padding: 0 !important;
+    display: flex;
+    height: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+
+    @media ("min-width: 750px") {
+        align-items: stretch;
+        overflow: hidden;
+    }
+
+    > section {
+        @include overflowY;
+    }
+
+    .side-panel {
+        width: 100%;
+
+        @media ("min-width: 750px") {
+            @include border-end(solid 1px #e7e7e7);
+            max-width: var(--split-layout-side-panel-width);
+        }
+
+        //customizations
+        padding: 0 .5rem;
+        min-width: 360px;
+    }
+
+    .content-area {
+        flex: 1;
+        -webkit-overflow-scrolling: auto !important;
+    }
+
+    // customizations for spike
+    min-height: 100%;
+}

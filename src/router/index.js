@@ -5,11 +5,11 @@ import ContactDetails from "@/components/ContactDetails.vue";
 import ContactEdit from "@/components/ContactEdit.vue";
 import NoteAdd from "@/components/NoteAdd.vue";
 import NoteList from "@/components/NoteList.vue";
-import NoteDetails from "@/components/NoteDetailsSamePanel.vue";
+import NoteDetails from "@/components/NoteDetails.vue";
 import NoteEdit from "@/components/NoteEdit.vue";
 import GridTest from "@/components/GridTest.vue";
 import NoteDetailsPaneled from "@/components/NoteDetailsNewPanel.vue";
-import NoteDetailsSamePanel from "@/components/NoteDetailsSamePanel.vue";
+import NoteDetailsSamePanel from "@/components/NoteDetails.vue";
 import NoteDetailsNewPanel from "@/components/NoteDetailsNewPanel.vue";
 
 const routes= [

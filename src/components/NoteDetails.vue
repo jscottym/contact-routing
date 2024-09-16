@@ -30,7 +30,7 @@ function saveNote(updated) {
 </script>
 
 <template>
-  <div class="flex gap-2">
+  <div class="notes-details">
     <router-view v-slot="{ Component }">
       <template v-if="Component">
         <component :is="Component" :note="note" :show-back="showBack" @save="saveNote"/>
@@ -55,3 +55,9 @@ function saveNote(updated) {
     </router-view>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.notes-details {
+  @include split-panel-view;
+}
+</style>
