@@ -2,18 +2,30 @@
 import { useAsyncState } from "@vueuse/core";
 import { useRoute } from "vue-router";
 import { useFakeContactsStore } from "@/stores/fakeContactsStore";
-import {onMounted, watch, getCurrentInstance, computed} from "vue";
+import {onMounted, watch, getCurrentInstance, computed, provide} from "vue";
 import useBasePath from "@/composables/useBasePath";
 import useShowOrHide from "../composables/useShowOrHide";
 import PanelHeader from "@/components/PanelHeader.vue";
 import { cloneDeep } from "lodash";
 
-const { isWideEnough, isCurrentRoute } = useShowOrHide(1470, /^\/contacts\/[^/]+$/);
+const props = defineProps({
+    contactId: Number,
+    panelSubtract: {
+        type: Number,
+        default: 0,
+    },
+});
 const route = useRoute();
 
+watch(()=>props.panelSubtract, (newVal)=> {
+  provide('panelSubtract', props.panelSubtract);
+}, {immediate: true});
+
 const { basePath, navigateToDetails } = useBasePath('contact');
+const { isWideEnough, isCurrentRoute } = useShowOrHide(1470, /^\/contacts\/[^/]+$/);
 
 const { getContactById, updateContact } = useFakeContactsStore();
+const contactId = computed(()=> props.contactId ?? route.params.contactId);
 const { state: contact, isLoading, execute: loadContact } = useAsyncState(
   async () => {
     return cloneDeep(await getContactById(route.params.contactId));
@@ -54,6 +66,8 @@ async function saveContact(contact) {
         <RouterLink :to="`${basePath}/${contact.id}/details`">Contact Details</RouterLink>
 
         <RouterLink :to="`${basePath}/${contact.id}/notes`">Notes</RouterLink>
+
+        Panel width subtract: {{ props.panelSubtract }}
       </div>
     </div>
 

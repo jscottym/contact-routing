@@ -1,11 +1,18 @@
-    import {computed, getCurrentInstance} from 'vue';
+    import {computed, getCurrentInstance, inject} from 'vue';
     import {useRoute} from 'vue-router';
     import {useMediaQuery} from "@vueuse/core";
 
+
+    // helper for showing or hiding components based on route and screen size
+
     export default function useShowOrHide(breakpoint, routeRegex) {
     const route = useRoute();
+    const panelSubtract = inject('panelSubtract', 0);
 
-    const isWideEnough = useMediaQuery(`(min-width: ${breakpoint}px)`);
+    const remainingWidth = breakpoint + panelSubtract;
+    console.log('remainingWidth', breakpoint, panelSubtract, remainingWidth);
+
+    const isWideEnough = useMediaQuery(`(min-width: ${remainingWidth}px)`);
 
     const instance = getCurrentInstance();
     const isCurrentPanelComponent = computed(() => {

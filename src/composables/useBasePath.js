@@ -1,6 +1,7 @@
 import { computed, inject, provide, ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
+// helper for providing a base path for a given object
 export default function useBasePath(objectName,  { doProvide, basePath } = {}) {
     const route = useRoute();
     const router = useRouter();

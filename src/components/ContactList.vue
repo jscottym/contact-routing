@@ -2,10 +2,13 @@
 import { storeToRefs } from "pinia";
 import { useFakeContactsStore } from "@/stores/fakeContactsStore";
 import useBasePath from "../composables/useBasePath";
-import { useMediaQuery } from "@vueuse/core";
 import useShowOrHide from "../composables/useShowOrHide";
+import {provide} from "vue";
 
-const { isWideEnough, isCurrentPanelComponent } = useShowOrHide(751, /^\/contacts$/);
+const panelSubtract = 400
+provide('panelSubtract', panelSubtract);
+
+const { isWideEnough, isCurrentPanelComponent } = useShowOrHide(351, /^\/contacts$/);
 
 const { basePath, isListRoute, navigateToDetails } = useBasePath('contact', {
     doProvide: true,
@@ -38,7 +41,7 @@ function openContact(contactId) {
     </div>
 
     <div v-show="isWideEnough || !isCurrentPanelComponent" >
-      <router-view/>
+      <router-view :panel-subtract="400"/>
     </div>
   </div>
 </template>

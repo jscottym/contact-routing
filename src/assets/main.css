@@ -9,7 +9,20 @@
 
 #app {
   padding: 2rem;
+  font-size: 1.5rem;
   font-weight: normal;
+}
+
+input, textarea {
+  padding: 0 .25rem;
+  font-size: 1.25rem;
+}
+
+button {
+  padding: .5rem 1rem;
+  font-size: 1rem;
+  font-weight: normal;
+  border-radius: 8px;
 }
 
 a,

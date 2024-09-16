@@ -11,10 +11,8 @@ defineProps({
 });
 
 const route = useRoute();
-const router = useRouter();
 
 const {getNoteById} = useFakeContactsStore();
-
 const {navigateToEdit, navigateToList} = useBasePath('note');
 
 const {state: note, isLoading, error, execute: fetchNote} = useAsyncState(async () => {
@@ -22,13 +20,10 @@ const {state: note, isLoading, error, execute: fetchNote} = useAsyncState(async 
 }, {}, {immediate: false});
 
 watch(() => route.params.noteId, (newVal) => {
-    console.log('noteId watcher fired', newVal);
     fetchNote();
 }, {immediate: true});
 
 function saveNote(updated) {
-    console.log('saving note', updated);
-
     navigateToList();
 
 }

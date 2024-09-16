@@ -33,7 +33,7 @@ export const useFakeContactsStore = defineStore("fakeContactData", () => {
   };
 
   // Action to get a contact by ID
-  const getContactById = async (id: number) => {
+  const getContactById = async (id) => {
     await delay(500);
     const contact = contacts.value.find((c) => c.id == id);
     if (!contact) {
