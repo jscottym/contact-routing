@@ -1,5 +1,12 @@
 @import './base.css';
 
+.panel {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
+  min-width: 375px;
+  max-width: 500px;
+  padding: 1rem;
+}
+
 #app {
   padding: 2rem;
   font-weight: normal;
@@ -168,11 +175,3 @@ a,
 .ring-red {
   box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.5);
 }
-
-.panel {
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
-  min-width: 300px;
-  max-width: 300px;
-  padding: 1rem;
-}
-

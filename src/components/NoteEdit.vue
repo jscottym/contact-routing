@@ -8,6 +8,8 @@ defineProps({
   showBack: Boolean,
 });
 
+const emit = defineEmits(['save']);
+
 const { navigateToId } = useBasePath('note');
 
 </script>
@@ -18,10 +20,10 @@ const { navigateToId } = useBasePath('note');
       <h1>Edit Note</h1>
     </PanelHeader>
 
-    <form v-if="note">
-      <label>Content: <input v-model="note.content" /></label><br />
+    <label>Content: <input v-model="note.content" /></label><br />
 
-      <button type="submit" @click="navigateToId">Back to details</button>
-    </form>
+    <button @click="emit('save')">Save</button>
+
+    <button @click="navigateToId">Back to details</button>
   </div>
 </template>

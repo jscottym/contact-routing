@@ -15,7 +15,7 @@ const router = useRouter();
 
 const {getNoteById} = useFakeContactsStore();
 
-const {navigateToEdit} = useBasePath('note');
+const {navigateToEdit, navigateToList} = useBasePath('note');
 
 const {state: note, isLoading, error, execute: fetchNote} = useAsyncState(async () => {
     return await getNoteById(route.params.noteId);
@@ -25,13 +25,20 @@ watch(() => route.params.noteId, (newVal) => {
     console.log('noteId watcher fired', newVal);
     fetchNote();
 }, {immediate: true});
+
+function saveNote(updated) {
+    console.log('saving note', updated);
+
+    navigateToList();
+
+}
 </script>
 
 <template>
   <div class="flex gap-2">
     <router-view v-slot="{ Component }">
       <template v-if="Component">
-        <component :is="Component" :note="note" :show-back="showBack"/>
+        <component :is="Component" :note="note" :show-back="showBack" @save="saveNote"/>
       </template>
 
       <template v-else>
@@ -44,8 +51,8 @@ watch(() => route.params.noteId, (newVal) => {
             <h1>Note Details</h1>
           </PanelHeader>
 
-          <div>{{ note.id }}</div>
-          <div>{{ note.content }}</div>
+          <div>Id: {{ note.id }}</div>
+          <div>Content: {{ note.content }}</div>
 
           <button @click="navigateToEdit">Edit</button>
         </div>
