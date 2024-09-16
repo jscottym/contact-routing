@@ -57,7 +57,7 @@ const routes= [
 
                 {
                   path: ":noteId",
-                  component: NoteDetailsPaneled,
+                  component: NoteDetails,
                   children: [
                     {
                       path: "edit",

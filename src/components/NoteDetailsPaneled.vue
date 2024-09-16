@@ -29,12 +29,12 @@ function saveNote(updated) {
 
 <template>
   <div class="main-wrapper flex gap-2">
-    <div v-show="isWideEnough.value || isCurrentPanelComponent" class="panel">
+    <div v-show="isWideEnough || isCurrentPanelComponent" class="panel">
       <div v-if="isLoading">Loading...</div>
 
       <div v-if="error">Can't load that note</div>
 
-      <PanelHeader :show-back="!isWideEnough.value">
+      <PanelHeader :show-back="!isWideEnough">
         <h1>Note Details</h1>
       </PanelHeader>
 
@@ -44,8 +44,8 @@ function saveNote(updated) {
       <button @click="navigateToEdit">Edit</button>
     </div>
 
-    <div v-show="isWideEnough.value || !isCurrentPanelComponent">
-      <router-view :note="note" :show-back="!isWideEnough.value" @save="saveNote" />
+    <div v-show="isWideEnough || !isCurrentPanelComponent">
+      <router-view :note="note" :show-back="!isWideEnough" @save="saveNote" />
     </div>
   </div>
 

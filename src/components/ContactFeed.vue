@@ -54,8 +54,8 @@ async function saveContact(contact) {
 
 <template>
   <div class="flex gap-2">
-    <div v-show="isWideEnough.value || isCurrentRoute" class="panel p-4">
-      <PanelHeader :show-back="!isWideEnough.value">
+    <div v-show="isWideEnough || isCurrentRoute" class="panel p-4">
+      <PanelHeader :show-back="!isWideEnough">
         <h1>Contact</h1>
       </PanelHeader>
 
@@ -71,10 +71,10 @@ async function saveContact(contact) {
       </div>
     </div>
 
-    <div v-show="isWideEnough.value || (!isCurrentRoute)">
+    <div v-show="isWideEnough || (!isCurrentRoute)">
       <RouterView
           :contact="contact"
-          :show-back="!isWideEnough.value"
+          :show-back="!isWideEnough"
           @save="saveContact"
       />
     </div>

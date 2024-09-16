@@ -5,10 +5,12 @@ import {useAsyncState} from "@vueuse/core";
 import useBasePath from "@/composables/useBasePath";
 import {useFakeContactsStore} from "@/stores/fakeContactsStore";
 import PanelHeader from "@/components/PanelHeader.vue";
-import useShowOrHide from "@/composables/useShowOrHide.js";
+
+defineProps({
+    showBack: Boolean,
+});
 
 const route = useRoute();
-const { isWideEnough, isCurrentPanelComponent } = useShowOrHide(750*3);
 
 const {getNoteById} = useFakeContactsStore();
 const {navigateToEdit, navigateToList} = useBasePath('note');
@@ -31,7 +33,7 @@ function saveNote(updated) {
   <div class="flex gap-2">
     <router-view v-slot="{ Component }">
       <template v-if="Component">
-        <component :is="Component" :note="note" :show-back="!isWideEnough.value" @save="saveNote"/>
+        <component :is="Component" :note="note" :show-back="showBack" @save="saveNote"/>
       </template>
 
       <template v-else>

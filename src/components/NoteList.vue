@@ -54,12 +54,10 @@ async function addContactNote(note) {
 
 <template>
   <div class="main-wrapper flex gap-2">
-    <div v-show="isWideEnough.value || isCurrentPanelComponent" class="panel">
+    <div v-show="isWideEnough || isCurrentPanelComponent" class="panel">
       <div class="flex flex-col gap-2">
-        <PanelHeader :show-back="!isWideEnough.value">
+        <PanelHeader :show-back="!isWideEnough">
           <h1>Notes List</h1>
-
-          <pre>{{ { isWideEnough } }}</pre>
         </PanelHeader>
 
         <ul>
@@ -76,8 +74,8 @@ async function addContactNote(note) {
       </div>
     </div>
 
-    <div v-show="isWideEnough.value || !isCurrentPanelComponent">
-      <router-view @add="addContactNote" :show-back="!isWideEnough.value" />
+    <div v-show="isWideEnough || !isCurrentPanelComponent">
+      <router-view @add="addContactNote" :show-back="!isWideEnough" />
     </div>
 
   </div>
