@@ -12,7 +12,9 @@
     const remainingWidth = breakpoint + panelSubtract;
     console.log('remainingWidth', breakpoint, panelSubtract, remainingWidth);
 
-    const isWideEnough = useMediaQuery(`(min-width: ${remainingWidth}px)`);
+    const isWideEnough = computed(()=> {
+        return useMediaQuery(`(min-width: ${remainingWidth}px)`).value;
+    });
 
     const instance = getCurrentInstance();
     const isCurrentPanelComponent = computed(() => {

@@ -5,10 +5,8 @@ import useBasePath from "../composables/useBasePath";
 import useShowOrHide from "../composables/useShowOrHide";
 import {provide} from "vue";
 
-const panelSubtract = 400
-provide('panelSubtract', panelSubtract);
-
-const { isWideEnough, isCurrentPanelComponent } = useShowOrHide(351, /^\/contacts$/);
+const listPanelSize = 750;
+const { isWideEnough, isCurrentPanelComponent } = useShowOrHide(listPanelSize, /^\/contacts$/);
 
 const { basePath, isListRoute, navigateToDetails } = useBasePath('contact', {
     doProvide: true,
@@ -25,7 +23,7 @@ function openContact(contactId) {
 
 <template>
   <div class="main-wrapper flex gap-2">
-    <div v-show="isWideEnough || isCurrentPanelComponent" class="panel p-4">
+    <div v-show="isWideEnough.value || isCurrentPanelComponent" class="panel p-4">
       <h1>Contact List</h1>
 
      <div class="flex flex-col gap-2">
@@ -40,8 +38,8 @@ function openContact(contactId) {
      </div>
     </div>
 
-    <div v-show="isWideEnough || !isCurrentPanelComponent" >
-      <router-view :panel-subtract="400"/>
+    <div v-show="isWideEnough.value || !isCurrentPanelComponent" >
+      <router-view :panel-subtract="listPanelSize"/>
     </div>
   </div>
 </template>

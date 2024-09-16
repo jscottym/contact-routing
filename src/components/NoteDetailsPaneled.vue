@@ -28,28 +28,25 @@ function saveNote(updated) {
 </script>
 
 <template>
-  <div class="flex gap-2">
-    <router-view v-slot="{ Component }">
-      <template v-if="Component">
-        <component :is="Component" :note="note" :show-back="!isWideEnough.value" @save="saveNote"/>
-      </template>
+  <div class="main-wrapper flex gap-2">
+    <div v-show="isWideEnough.value || isCurrentPanelComponent" class="panel">
+      <div v-if="isLoading">Loading...</div>
 
-      <template v-else>
-        <div class="panel">
-          <div v-if="isLoading">Loading...</div>
+      <div v-if="error">Can't load that note</div>
 
-          <div v-if="error">Can't load that note</div>
+      <PanelHeader :show-back="!isWideEnough.value">
+        <h1>Note Details</h1>
+      </PanelHeader>
 
-          <PanelHeader :show-back="showBack">
-            <h1>Note Details</h1>
-          </PanelHeader>
+      <div>Id: {{ note.id }}</div>
+      <div>Content: {{ note.content }}</div>
 
-          <div>Id: {{ note.id }}</div>
-          <div>Content: {{ note.content }}</div>
+      <button @click="navigateToEdit">Edit</button>
+    </div>
 
-          <button @click="navigateToEdit">Edit</button>
-        </div>
-      </template>
-    </router-view>
+    <div v-show="isWideEnough.value || !isCurrentPanelComponent">
+      <router-view :note="note" :show-back="!isWideEnough.value" @save="saveNote" />
+    </div>
   </div>
+
 </template>

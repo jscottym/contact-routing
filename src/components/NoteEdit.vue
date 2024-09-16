@@ -2,6 +2,7 @@
 import { defineProps } from "vue";
 import useBasePath from "@/composables/useBasePath";
 import PanelHeader from "@/components/PanelHeader.vue";
+import useShowOrHide from "@/composables/useShowOrHide.js";
 
 defineProps({
   note: Object,

@@ -8,6 +8,7 @@ import NoteList from "@/components/NoteList.vue";
 import NoteDetails from "@/components/NoteDetails.vue";
 import NoteEdit from "@/components/NoteEdit.vue";
 import GridTest from "@/components/GridTest.vue";
+import NoteDetailsPaneled from "@/components/NoteDetailsPaneled.vue";
 
 const routes= [
   {
@@ -56,7 +57,7 @@ const routes= [
 
                 {
                   path: ":noteId",
-                  component: NoteDetails,
+                  component: NoteDetailsPaneled,
                   children: [
                     {
                       path: "edit",

@@ -22,7 +22,7 @@ watch(()=>props.panelSubtract, (newVal)=> {
 }, {immediate: true});
 
 const { basePath, navigateToDetails } = useBasePath('contact');
-const { isWideEnough, isCurrentRoute } = useShowOrHide(1470, /^\/contacts\/[^/]+$/);
+const { isWideEnough, isCurrentRoute } = useShowOrHide(750, /^\/contacts\/[^/]+$/);
 
 const { getContactById, updateContact } = useFakeContactsStore();
 const contactId = computed(()=> props.contactId ?? route.params.contactId);
@@ -54,8 +54,8 @@ async function saveContact(contact) {
 
 <template>
   <div class="flex gap-2">
-    <div v-show="isWideEnough || isCurrentRoute" class="panel p-4">
-      <PanelHeader :show-back="!isWideEnough">
+    <div v-show="isWideEnough.value || isCurrentRoute" class="panel p-4">
+      <PanelHeader :show-back="!isWideEnough.value">
         <h1>Contact</h1>
       </PanelHeader>
 
@@ -71,10 +71,10 @@ async function saveContact(contact) {
       </div>
     </div>
 
-    <div v-show="isWideEnough || (!isCurrentRoute)">
+    <div v-show="isWideEnough.value || (!isCurrentRoute)">
       <RouterView
           :contact="contact"
-          :show-back="!isWideEnough"
+          :show-back="!isWideEnough.value"
           @save="saveContact"
       />
     </div>
