@@ -2,13 +2,11 @@
 import { useAsyncState } from "@vueuse/core";
 import { useRoute } from "vue-router";
 import { useFakeContactsStore } from "@/stores/fakeContactsStore";
-import {onMounted, watch, computed} from "vue";
+import {onMounted, watch} from "vue";
 import useBasePath from "@/composables/useBasePath";
 import useShowOrHide from "../composables/useShowOrHide";
 
-const { isWideEnough: isShowFeed, isCurrentRoute: isFeedRoute } = useShowOrHide(1470, /^\/contacts\/[^/]+$/);
-const { isWideEnough: isShowTab, isCurrentRoute: isTabRoute } = useShowOrHide(1470, /^\/contacts\/[^/]+\/[^/]+$/
-);
+const { isWideEnough, isCurrentRoute } = useShowOrHide(1470, /^\/contacts\/[^/]+$/);
 const route = useRoute();
 const { basePath, isListRoute } = useBasePath('contact');
 
@@ -33,7 +31,7 @@ watch(()=>route.params.contactId, (newVal)=> {
 
 <template>
   <div class="flex gap-2">
-    <div v-show="isShowFeed || isFeedRoute" class="panel p-4">
+    <div v-show="isWideEnough || isCurrentRoute" class="panel p-4">
       <h1>ContactFeed ({{ route.params.contactId }})</h1>
 
       <div>{{ contact.name }}</div>
@@ -41,11 +39,12 @@ watch(()=>route.params.contactId, (newVal)=> {
 
       <div class="flex flex-col px-2">
         <RouterLink :to="`${basePath}/${contact.id}/details`">Contact Details</RouterLink>
+
         <RouterLink :to="`${basePath}/${contact.id}/notes`">Notes</RouterLink>
       </div>
     </div>
 
-    <div v-show="isShowTab || !isTabRoute">
+    <div v-show="isWideEnough || (!isCurrentRoute)">
       <RouterView :contact="contact"/>
     </div>
 

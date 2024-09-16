@@ -35,6 +35,7 @@ export default function useBasePath(objectName,  { doProvide, basePath } = {}) {
         basePath,
         navigateToEdit,
         navigateToDetails,
+        navigateToId,
         isListRoute,
     };
 }
